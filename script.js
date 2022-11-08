@@ -5,12 +5,11 @@ const renderError = function (msg) {
   document.querySelector("#app").insertAdjacentHTML("afterbegin", msg);
 };
 
-const createUserHTML = function (user) {
-  console.log(user);
+const createUserHTML = function (article) {
+  console.log(article);
   return `
     <div class=user>
-      <p>${user.query.search[0].snippet}</p>
-
+      <p>${article.snippet}</p>
     </div>
   `;
 };
@@ -32,8 +31,8 @@ const fetchWiki = async function () {
     );
     if (!res.ok) throw new Error(`This is not a valid search term.`);
     const data = await res.json();
-    // console.log(data.query.search[0].snippet);
-    const html = createUserHTML(data);
+
+    const html = data.query.search.map((article) => createUserHTML(article));
     document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
     // return renderWiki(data);
   } catch (err) {
