@@ -6,9 +6,11 @@ const renderError = function (msg) {
 };
 
 const createUserHTML = function (user) {
+  console.log(user);
   return `
     <div class=user>
-      <p>Login: ${user.query.search[0].snippet}</p>
+      <p>${user.query.search[0].snippet}</p>
+
     </div>
   `;
 };
