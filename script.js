@@ -8,25 +8,13 @@ const renderError = function (msg) {
 const createUserHTML = function (article) {
   console.log(article);
   return `
-    
-      <a href="https://hotelsiteboston.netlify.app/" target="_blank">
+      <a href="https://en.wikipedia.org/?curid=${article.pageid}" target="_blank">
         <div class=user>
           <p>${article.snippet}</p>
         </div>
       </a>
-   
   `;
 };
-
-// const renderWiki = function (data) {
-//   console.log(data);
-//   return `
-//   <div class=user>
-//   <p>Login: ${data}</p>
-//     </div>`;
-//     const html = data.map((article) => createUserHTML(article)).join("");
-//     document.querySelector("#app").insertAdjacentHTML("beforeend", html);
-// };
 
 const fetchWiki = async function () {
   try {
@@ -35,7 +23,7 @@ const fetchWiki = async function () {
     );
     if (!res.ok) throw new Error(`This is not a valid search term.`);
     const data = await res.json();
-
+    console.log(data);
     const html = data.query.search
       .map((article) => createUserHTML(article))
       .join("");
