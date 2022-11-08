@@ -32,7 +32,9 @@ const fetchWiki = async function () {
     if (!res.ok) throw new Error(`This is not a valid search term.`);
     const data = await res.json();
 
-    const html = data.query.search.map((article) => createUserHTML(article));
+    const html = data.query.search
+      .map((article) => createUserHTML(article))
+      .join("");
     document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
     // return renderWiki(data);
   } catch (err) {
