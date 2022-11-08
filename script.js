@@ -1,5 +1,20 @@
 const fetchDataBtn = document.querySelector("#fetchdata");
 const input = document.querySelector("input");
+const clearSearchBtn = document.querySelector(".clear-search-btn");
+const articleText = document.querySelector(".user");
+
+// const clearSearch = function () {
+//   const divs = getElementByClassName(".user");
+
+//   while (divs.length > 0) {
+//     content.removeChild(divs[0]);
+//   }
+// };
+
+const clearSearch = function () {
+  // articleText.innerHTML.remove();
+  location.reload();
+};
 
 const renderError = function (msg) {
   document.querySelector("#app").insertAdjacentHTML("afterbegin", msg);
@@ -35,3 +50,4 @@ const fetchWiki = async function () {
 };
 
 fetchDataBtn.addEventListener("click", fetchWiki);
+clearSearchBtn.addEventListener("click", clearSearch);
