@@ -52,6 +52,10 @@ input {
   padding: 7px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .button-search {
   margin-top: 1rem;
 }
@@ -60,7 +64,7 @@ input {
   margin-top: 1rem;
 }
 
-.user {
+a .user {
   display: flex;
   flex-direction: column;
   justify-content: center;

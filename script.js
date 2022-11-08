@@ -8,9 +8,13 @@ const renderError = function (msg) {
 const createUserHTML = function (article) {
   console.log(article);
   return `
-    <div class=user>
-      <p>${article.snippet}</p>
-    </div>
+    
+      <a href="https://hotelsiteboston.netlify.app/" target="_blank">
+        <div class=user>
+          <p>${article.snippet}</p>
+        </div>
+      </a>
+   
   `;
 };
 
