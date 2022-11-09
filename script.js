@@ -3,17 +3,15 @@ const input = document.querySelector("input");
 const clearSearchBtn = document.querySelector(".clear-search-btn");
 const articleText = document.querySelector(".user");
 
-// const clearSearch = function () {
-//   const divs = getElementByClassName(".user");
-
-//   while (divs.length > 0) {
-//     content.removeChild(divs[0]);
-//   }
-// };
+function removeDivs() {
+  const divs = document.querySelectorAll(".user");
+  divs.forEach((div) => {
+    div.remove();
+  });
+}
 
 const clearSearch = function () {
-  // articleText.innerHTML.remove();
-  location.reload();
+  removeDivs();
 };
 
 const renderError = function (msg) {
