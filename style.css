@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600&family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lato&family=Lexend+Deca:wght@400;600&family=Montserrat:wght@400;600&family=Poppins:wght@400;600&family=Roboto:wght@400;500&family=Staatliches&display=swap");
 
 * {
   margin: 0;
@@ -8,7 +8,8 @@
 
 body {
   background: #b3995d;
-  font-family: "Lexend Deca", sans-serif;
+  /* font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif; */
 }
 
 .main-content {
@@ -19,8 +20,10 @@ body {
 
 .main-heading {
   margin-top: 2rem;
-  font-size: 26px;
+  font-size: 34px;
   color: #aa0000;
+  font-family: "Staatliches", cursive;
+  font-weight: bold;
 }
 
 .page-wrapper {
@@ -76,8 +79,7 @@ a {
   align-items: center;
   flex-wrap: wrap;
   margin-top: 3rem;
-  gap: 2rem;
-  margin-right: 10px;
+  gap: 1rem;
 }
 
 a .user {
@@ -92,6 +94,7 @@ a .user {
   /* max-width: 60%; */
   font-size: 14px;
   margin: 0 40px;
+  font-family: "Inter", sans-serif;
 }
 
 .user:hover {
@@ -101,8 +104,13 @@ a .user {
 @media (min-width: 768px) {
   .main-heading {
     margin-top: 3rem;
-    font-size: 36px;
+    font-size: 48px;
     color: #aa0000;
+  }
+
+  #app {
+    margin-top: 3rem;
+    gap: 2rem;
   }
 
   a .user {
@@ -113,9 +121,7 @@ a .user {
     background: #f3ea5f;
     color: black;
     padding: 5px;
-    /* flex-basis: 40%; */
     max-width: 700px;
     font-size: 16px;
-    /* margin: 0 20px; */
   }
 }
