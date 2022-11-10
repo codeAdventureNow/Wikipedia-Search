@@ -97,3 +97,25 @@ a .user {
 .user:hover {
   background: gold;
 }
+
+@media (min-width: 768px) {
+  .main-heading {
+    margin-top: 3rem;
+    font-size: 36px;
+    color: #aa0000;
+  }
+
+  a .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f3ea5f;
+    color: black;
+    padding: 5px;
+    /* flex-basis: 40%; */
+    max-width: 700px;
+    font-size: 16px;
+    /* margin: 0 20px; */
+  }
+}
