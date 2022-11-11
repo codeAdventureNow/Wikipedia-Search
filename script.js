@@ -2,52 +2,50 @@ const searchWikipedia = document.querySelector("#fetchdata");
 const clearSearchBtn = document.querySelector(".clear-search-btn");
 const input = document.querySelector(".input-search");
 
-const removeArticles = function () {
+function removeArticles() {
   const articles = document.querySelectorAll(".articles");
   articles.forEach((article) => {
     article.remove();
   });
-};
+}
 
-const clearInput = function () {
+function clearInput() {
   input.value = "";
-};
+}
 
-const clearSearch = function () {
+function clearSearch() {
   removeArticles();
   clearInput();
-};
+}
 
-const renderError = function (msg) {
+function renderError(msg) {
   document.querySelector("#app").insertAdjacentHTML("afterbegin", msg);
-};
+}
 
-const createArticleHTML = function (article) {
+function createArticleHTML(article) {
   console.log(article);
   return `
       <a href="https://en.wikipedia.org/?curid=${article.pageid}" target="_blank" class="articles">
           <p>${article.snippet}</p>
       </a>
   `;
-};
+}
 
-const fetchWiki = async function () {
+async function fetchWiki() {
   try {
-    const res = await fetch(
+    const response = await fetch(
       `https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&list=search&srsearch=${input.value}`
     );
-    if (!res.ok) throw new Error(`This is not a valid search term.`);
-    const data = await res.json();
-    console.log(data);
+    if (!response.ok) throw new Error(`This is not a valid search term.`);
+    const data = await response.json();
     const html = data.query.search
       .map((article) => createArticleHTML(article))
       .join("");
     document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
-    // return renderWiki(data);
   } catch (err) {
     renderError(err);
   }
-};
+}
 
 searchWikipedia.addEventListener("click", fetchWiki);
 clearSearchBtn.addEventListener("click", clearSearch);
