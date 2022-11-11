@@ -1,17 +1,23 @@
 const fetchDataBtn = document.querySelector("#fetchdata");
-const input = document.querySelector("input");
+const input = document.querySelectorAll("input");
 const clearSearchBtn = document.querySelector(".clear-search-btn");
 const articleText = document.querySelector(".user");
 
 function removeDivs() {
   const divs = document.querySelectorAll(".user");
+  // const input = document.querySelector(".input-search");
   divs.forEach((div) => {
     div.remove();
   });
 }
 
+function clearInput() {
+  input.forEach((input) => (input.value = ""));
+}
+
 const clearSearch = function () {
   removeDivs();
+  clearInput();
 };
 
 const renderError = function (msg) {
