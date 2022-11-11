@@ -9,13 +9,19 @@ function removeArticles() {
   });
 }
 
+function clearErrorMessage() {
+  const app = document.querySelector("#app");
+  app.textContent = "";
+}
+
 function clearInput() {
-  input.value = "";
+  input.textContent = "";
 }
 
 function clearSearch() {
   removeArticles();
   clearInput();
+  clearErrorMessage();
 }
 
 function renderError(msg) {
