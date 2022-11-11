@@ -2,16 +2,16 @@ const searchWikipedia = document.querySelector("#fetchdata");
 const clearSearchBtn = document.querySelector(".clear-search-btn");
 const input = document.querySelector(".input-search");
 
-function removeArticles() {
+const removeArticles = function () {
   const articles = document.querySelectorAll(".articles");
   articles.forEach((article) => {
     article.remove();
   });
-}
+};
 
-function clearInput() {
+const clearInput = function () {
   input.value = "";
-}
+};
 
 const clearSearch = function () {
   removeArticles();
@@ -22,7 +22,6 @@ const renderError = function (msg) {
   document.querySelector("#app").insertAdjacentHTML("afterbegin", msg);
 };
 
-//rename createArticleLink
 const createArticleHTML = function (article) {
   console.log(article);
   return `
