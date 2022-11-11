@@ -1,20 +1,20 @@
-const fetchDataBtn = document.querySelector("#fetchdata");
-const input = document.querySelectorAll("input");
+const searchWikipedia = document.querySelector("#fetchdata");
 const clearSearchBtn = document.querySelector(".clear-search-btn");
+const input = document.querySelector(".input-search");
 
-function removeDivs() {
-  const divs = document.querySelectorAll(".user");
-  divs.forEach((div) => {
-    div.remove();
+function removeArticles() {
+  const articles = document.querySelectorAll(".articles");
+  articles.forEach((article) => {
+    article.remove();
   });
 }
 
 function clearInput() {
-  input.forEach((input) => (input.value = ""));
+  input.value = "";
 }
 
 const clearSearch = function () {
-  removeDivs();
+  removeArticles();
   clearInput();
 };
 
@@ -22,13 +22,12 @@ const renderError = function (msg) {
   document.querySelector("#app").insertAdjacentHTML("afterbegin", msg);
 };
 
-const createUserHTML = function (article) {
+//rename createArticleLink
+const createArticleHTML = function (article) {
   console.log(article);
   return `
-      <a href="https://en.wikipedia.org/?curid=${article.pageid}" target="_blank">
-        <div class=user>
+      <a href="https://en.wikipedia.org/?curid=${article.pageid}" target="_blank" class="articles">
           <p>${article.snippet}</p>
-        </div>
       </a>
   `;
 };
@@ -42,7 +41,7 @@ const fetchWiki = async function () {
     const data = await res.json();
     console.log(data);
     const html = data.query.search
-      .map((article) => createUserHTML(article))
+      .map((article) => createArticleHTML(article))
       .join("");
     document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
     // return renderWiki(data);
@@ -51,5 +50,5 @@ const fetchWiki = async function () {
   }
 };
 
-fetchDataBtn.addEventListener("click", fetchWiki);
+searchWikipedia.addEventListener("click", fetchWiki);
 clearSearchBtn.addEventListener("click", clearSearch);
