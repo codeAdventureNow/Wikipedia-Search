@@ -15,7 +15,9 @@ function clearErrorMessage() {
 }
 
 function clearInput() {
-  input.textContent = "";
+  if (input.value != "") {
+    input.value = "";
+  }
 }
 
 function clearSearch() {
@@ -29,7 +31,7 @@ function renderError(msg) {
 }
 
 function createArticleHTML(article) {
-  console.log(article);
+  removeArticles();
   return `
       <a href="https://en.wikipedia.org/?curid=${article.pageid}" target="_blank" class="articles">
           <p>${article.snippet}</p>

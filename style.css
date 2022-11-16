@@ -8,8 +8,6 @@
 
 body {
   background: #b3995d;
-  /* font-family: "Poppins", sans-serif;
-  font-family: "Roboto", sans-serif; */
 }
 
 .main-content {
@@ -78,7 +76,7 @@ a {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin: 3rem 0rem;
   gap: 1rem;
 }
 
@@ -90,14 +88,13 @@ a {
   background: #f3ea5f;
   color: black;
   padding: 5px;
-  /* flex-basis: 40%; */
-  /* max-width: 60%; */
   font-size: 14px;
-  margin: 0 40px;
+  margin: 0 45px;
   font-family: "Inter", sans-serif;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.user:hover {
+.articles:hover {
   background: gold;
 }
 
@@ -109,18 +106,10 @@ a {
   }
 
   #app {
-    margin-top: 3rem;
     gap: 2rem;
   }
 
   .articles {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #f3ea5f;
-    color: black;
-    padding: 5px;
     max-width: 700px;
     font-size: 16px;
   }
