@@ -1,6 +1,7 @@
 const searchWikipedia = document.querySelector("#fetchdata");
 const clearSearchBtn = document.querySelector(".clear-search-btn");
 const input = document.querySelector(".input-search");
+const app = document.querySelector("#app");
 
 function removeArticles() {
   const articles = document.querySelectorAll(".articles");
@@ -10,7 +11,6 @@ function removeArticles() {
 }
 
 function clearErrorMessage() {
-  const app = document.querySelector("#app");
   app.textContent = "";
 }
 
@@ -27,7 +27,7 @@ function clearSearch() {
 }
 
 function renderError(msg) {
-  document.querySelector("#app").insertAdjacentHTML("afterbegin", msg);
+  app.insertAdjacentHTML("afterbegin", msg);
 }
 
 function createArticleHTML(article) {
@@ -49,7 +49,7 @@ async function fetchWiki() {
     const html = data.query.search
       .map((article) => createArticleHTML(article))
       .join("");
-    document.querySelector("#app").insertAdjacentHTML("afterbegin", html);
+    app.insertAdjacentHTML("afterbegin", html);
   } catch (err) {
     renderError(err);
   }
@@ -57,3 +57,4 @@ async function fetchWiki() {
 
 searchWikipedia.addEventListener("click", fetchWiki);
 clearSearchBtn.addEventListener("click", clearSearch);
+
