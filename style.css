@@ -47,6 +47,7 @@ body {
   display: inline-block;
   font-size: 12px;
   border-radius: 10px;
+  margin: 10px 10px;
 }
 
 .clear-search-btn {
@@ -115,3 +116,4 @@ a {
     font-size: 16px;
   }
 }
+
